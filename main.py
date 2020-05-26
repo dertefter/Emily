@@ -9,8 +9,10 @@ def get_text_messages(message):
         bot.send_message(message.from_user.id, "Привет! Меня зовут Эмили. Просто отправь мне ссылку на приложение из Google Play!")
 
     if 'https' in message.text:
-        bot.send_message(message.from_user.id, link_maker.create_link('https://' + message.text.partition('https://')[2]))
-
+        try:
+            bot.send_message(message.from_user.id, link_maker.create_link('https://' + message.text.partition('https://')[2]))
+        except:
+            bot.send_message(message.from_user.id, "Ошибка. Не могу найти  приложение")
 
 
 bot.polling(none_stop=True, interval=0)
