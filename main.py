@@ -7,8 +7,9 @@ bot = telebot.TeleBot('926781036:AAEwd13njCMyqA0frhlUlHC4KqKjwv2frtE')
 def get_text_messages(message):
     if message.text == "Привет":
         bot.send_message(message.from_user.id, "Привет! Меня зовут Эмили. Просто отправь мне ссылку на приложение из Google Play!")
-    else:
-        link = link_maker.create_link(message.text)
-        bot.send_message(message.from_user.id, link)
+
+    if 'https' in message.text:
+        bot.send_message(message.from_user.id, "Ага, это ссылка")
+
 
 bot.polling(none_stop=True, interval=0)
