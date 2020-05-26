@@ -9,7 +9,7 @@ def get_text_messages(message):
         bot.send_message(message.from_user.id, "Привет! Меня зовут Эмили. Просто отправь мне ссылку на приложение из Google Play!")
 
     if 'https' in message.text:
-        bot.send_message(message.from_user.id, link_maker.create_link('https://') + message.text.partition('https://')[2])
+        bot.send_message(message.from_user.id, link_maker.create_link('https://' + message.text.partition('https://')[2])
 
 
 
