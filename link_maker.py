@@ -9,6 +9,7 @@ def create_link(Link_from_store):
 
     HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 YaBrowser/20.4.3.257 Yowser/2.5 Yptp/1.23 Safari/537.36'
+    'Cache-Control': 'no-cache'
     }
 
     try:
