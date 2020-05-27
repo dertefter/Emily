@@ -26,20 +26,22 @@ def create_link(Link_from_store):
         l = 'https://www.apkmirror.com' + s.find('a', text='here').get('href')
 
     except:
-        r = requests.get(am_search, headers = HEADERS)
-        s = bs(r.content, 'html.parser')
-        l ='https://www.apkmirror.com' + s.find('a', class_='fontBlack').get('href')
+        try:
+            r = requests.get(am_search, headers = HEADERS)
+            s = bs(r.content, 'html.parser')
+            l ='https://www.apkmirror.com' + s.find('a', class_='fontBlack').get('href')
 
-        r = requests.get(l, headers = HEADERS)
-        s = bs(r.content, 'html.parser')
-        l = 'https://www.apkmirror.com' + s.find('div', class_='table-cell rowheight addseparator expand pad dowrap').find('a').get('href')
+            r = requests.get(l, headers = HEADERS)
+            s = bs(r.content, 'html.parser')
+            l = 'https://www.apkmirror.com' + s.find('div', class_='table-cell rowheight addseparator expand pad dowrap').find('a').get('href')
 
-        r = requests.get(l, headers = HEADERS)
-        s = bs(r.content, 'html.parser')
-        l = 'https://www.apkmirror.com' + s.find('a', class_='btn btn-flat downloadButton').get('href')
+            r = requests.get(l, headers = HEADERS)
+            s = bs(r.content, 'html.parser')
+            l = 'https://www.apkmirror.com' + s.find('a', class_='btn btn-flat downloadButton').get('href')
 
-        r = requests.get(l, headers = HEADERS)
-        s = bs(r.content, 'html.parser')
-        l = 'https://www.apkmirror.com' + s.find('a', text='here').get('href')
-
+            r = requests.get(l, headers = HEADERS)
+            s = bs(r.content, 'html.parser')
+            l = 'https://www.apkmirror.com' + s.find('a', text='here').get('href')
+        except:
+            l = 'Я не смогла найти это приложение'
     return(l)
