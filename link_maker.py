@@ -16,32 +16,30 @@ def create_link(Link_from_store):
         r = requests.get(am_search, headers = HEADERS)
         s = bs(r.content, 'html.parser')
         l ='https://www.apkmirror.com' + s.find('a', class_='fontBlack').get('href')
-
+        print('capter 1')
         r = requests.get(l, headers = HEADERS)
         s = bs(r.content, 'html.parser')
         l = 'https://www.apkmirror.com' + s.find('a', class_='btn btn-flat downloadButton').get('href')
-
+        print('capter 2')
         r = requests.get(l, headers = HEADERS)
         s = bs(r.content, 'html.parser')
         l = 'https://www.apkmirror.com' + s.find('a', text='here').get('href')
-
+        print('capter 3')
     except:
-        try:
-            r = requests.get(am_search, headers = HEADERS)
-            s = bs(r.content, 'html.parser')
-            l ='https://www.apkmirror.com' + s.find('a', class_='fontBlack').get('href')
-
-            r = requests.get(l, headers = HEADERS)
-            s = bs(r.content, 'html.parser')
-            l = 'https://www.apkmirror.com' + s.find('div', class_='table-cell rowheight addseparator expand pad dowrap').find('a').get('href')
-
-            r = requests.get(l, headers = HEADERS)
-            s = bs(r.content, 'html.parser')
-            l = 'https://www.apkmirror.com' + s.find('a', class_='btn btn-flat downloadButton').get('href')
-
-            r = requests.get(l, headers = HEADERS)
-            s = bs(r.content, 'html.parser')
-            l = 'https://www.apkmirror.com' + s.find('a', text='here').get('href')
-        except:
-            l = 'Я не смогла найти это приложение'
+        r = requests.get(am_search, headers = HEADERS)
+        s = bs(r.content, 'html.parser')
+        l ='https://www.apkmirror.com' + s.find('a', class_='fontBlack').get('href')
+        print('capter 1')
+        r = requests.get(l, headers = HEADERS)
+        s = bs(r.content, 'html.parser')
+        l = 'https://www.apkmirror.com' + s.find('div', class_='table-cell rowheight addseparator expand pad dowrap').find('a').get('href')
+        print('capter 2')
+        r = requests.get(l, headers = HEADERS)
+        s = bs(r.content, 'html.parser')
+        l = 'https://www.apkmirror.com' + s.find('a', class_='btn btn-flat downloadButton').get('href')
+        print('capter 3')
+        r = requests.get(l, headers = HEADERS)
+        s = bs(r.content, 'html.parser')
+        l = 'https://www.apkmirror.com' + s.find('a', text='here').get('href')
+        print('capter 4')
     return(l)
